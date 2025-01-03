@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "312913767973",
+    "project_id": "chat25-9fe2a",
+    "storage_bucket": "chat25-9fe2a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312913767973:android:c72a029947afcb6c1d59cc",
+        "android_client_info": {
+          "package_name": "home.howework.chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnvawA_xCOmzBnY9txN1BjU6dYnB1YISo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

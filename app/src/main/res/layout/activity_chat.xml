@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatActivity">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/users_chat"
+        android:layout_above="@id/lin_layout"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#A303EDD7"
+        />
+<LinearLayout
+    android:id="@+id/lin_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="5dp"
+    android:weightSum="100"
+    android:orientation="horizontal" >
+    <EditText
+        android:id="@+id/mess_box"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/message_box"
+        android:hint="Введите сообщение"
+        android:layout_weight="85"
+        />
+    <ImageView
+        android:id="@+id/mess_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="20"
+        android:src="@drawable/img"
+        />
+</LinearLayout>
+</RelativeLayout >
