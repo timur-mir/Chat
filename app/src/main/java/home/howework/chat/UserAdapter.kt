@@ -34,7 +34,7 @@ class UserAdapter(val context: Context,val userList:ArrayList<User>): RecyclerVi
         holder.itemView.setOnClickListener{
             val intent= Intent(context,ChatActivity::class.java)
             intent.putExtra("name",currentUser.name)
-            intent.putExtra("uid",FirebaseAuth.getInstance().currentUser?.uid)
+            intent.putExtra("uid",currentUser.uid)
             context.startActivity(intent)
         }
     }

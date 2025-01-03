@@ -29,33 +29,24 @@ class SignUp : AppCompatActivity() {
             val name = binding.nameUser.text.toString().trim()
             val email = binding.userEmailSignUp.text.toString().trim()
             val password = binding.passwordSignUp.text.toString().trim()
-            signUp(name,email, password)
+            signUp(name, email, password)
         }
     }
-
-
-    private fun signUp(name:String,email: String, password: String) {
-        // val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+    private fun signUp(name: String, email: String, password: String) {
         if (TextUtils.isEmpty(email)) {
             binding.userEmailSignUp.setError("Укажите почту")
             binding.userEmailSignUp.requestFocus()
         } else if (TextUtils.isEmpty(password)) {
             binding.passwordSignUp.setError("Укажите пароль")
             binding.passwordSignUp.requestFocus()
-        }
-        else if (TextUtils.isEmpty(name)) {
+        } else if (TextUtils.isEmpty(name)) {
             binding.nameUser.setError("Укажите имя")
             binding.nameUser.requestFocus()
-        }
-//        else   if (Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-//            Toast.makeText(this, "Формат введенной почты неверен", Toast.LENGTH_SHORT).show()
-//        }
-        else {
+        } else {
             mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                       // val firebaseUser: FirebaseUser = task.result!!.user!!
-                            addUserToDataBase(name,email,mAuth.currentUser?.uid!!)
+                        addUserToDataBase(name, email, mAuth.currentUser?.uid!!)
                         val intent = Intent(this, MainActivity::class.java)
                         finish()
                         startActivity(intent)
@@ -67,52 +58,10 @@ class SignUp : AppCompatActivity() {
         }
 
     }
-   private fun addUserToDataBase(name: String,email: String,uid:String){
-        mDbRef=FirebaseDatabase.getInstance().reference
-       mDbRef.child("user").child(uid).setValue(User(name,email,uid))
+
+    private fun addUserToDataBase(name: String, email: String, uid: String) {
+        mDbRef = FirebaseDatabase.getInstance().reference
+        mDbRef.child("user").child(uid).setValue(User(name, email, uid))
     }
 }
 
-//private fun signUp2(email:String,password:String){
-//        mAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(this){task->
-//            if (task.isSuccessful) {
-//                mAuth.createUserWithEmailAndPassword(email, password)
-//                    .addOnCompleteListener(this) { task ->
-//                        if (task.isSuccessful) {
-//                            val firebaseUser: FirebaseUser = task.result!!.user!!
-//                            val intent = Intent(this, MainActivity::class.java)
-//                            startActivity(intent)
-//                        } else {
-//                            Toast.makeText(this, "Ошибка регистрации", Toast.LENGTH_SHORT).show()
-//                            Log.e("AUTH", "Error signing in", task.exception)
-//                        }
-//                    }
-//            }
-//            else {
-//                mAuth.createUserWithEmailAndPassword(email, password)
-//                    .addOnCompleteListener(this) { task ->
-//                        if (task.isSuccessful) {
-//                            val firebaseUser: FirebaseUser = task.result!!.user!!
-//                            val intent = Intent(this, MainActivity::class.java)
-//                            startActivity(intent)
-//                        } else {
-//                            Toast.makeText(this, "Ошибка регистрации 53545", Toast.LENGTH_SHORT).show()
-//                            Log.e("AUTH", "Error signing in", task.exception)
-//                        }
-//                    }
-//                Toast.makeText(this, "Ошибка регистрации????", Toast.LENGTH_LONG).show()
-//            }
-//
-//        }
-//
-//    }
-//       binding.signSignUp.setOnClickListener{
-//            if (binding.usernameSignUp.text!!.isNotEmpty()&&binding.passwordSignUp.text!!.isNotEmpty()) {
-//                val email = binding.usernameSignUp.text.toString().trim()
-//                val password = binding.passwordSignUp.text.toString().trim()
-//                signUp(email, password)
-//            }
-//            else{
-//                Toast.makeText(this, "Какое то поле или поля пустые", Toast.LENGTH_SHORT).show()
-//            }
-//        }
