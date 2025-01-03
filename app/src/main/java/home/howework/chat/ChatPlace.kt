@@ -76,8 +76,9 @@ class ChatPlace : AppCompatActivity() {
         if (item.itemId == R.id.logout) {
             mAuth.signOut()
             val intent = Intent(this, MainActivity::class.java)
+             finish()
             startActivity(intent)
-            finish()
+
             return true
         }
         return true

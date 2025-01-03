@@ -17,18 +17,22 @@
         <activity
             android:name=".ChatActivity"
             android:screenOrientation="portrait"
+            android:launchMode="singleTask"
             android:exported="false" />
         <activity
             android:name=".ChatPlace"
             android:screenOrientation="portrait"
+            android:launchMode="singleTask"
             android:exported="false" />
         <activity
             android:name=".SignUp"
             android:screenOrientation="portrait"
+            android:launchMode="singleTask"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
+            android:launchMode="singleTask"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
