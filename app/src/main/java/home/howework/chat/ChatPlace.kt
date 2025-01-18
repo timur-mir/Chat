@@ -78,7 +78,6 @@ class ChatPlace : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
              finish()
             startActivity(intent)
-
             return true
         }
         return true
